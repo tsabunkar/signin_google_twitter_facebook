@@ -1,3 +1,4 @@
+require('./configuration/config')
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -39,14 +40,14 @@ app.use(passport.session());
 
 
 //GoogleStrategy
-let GOOGLE_CLIENT_ID = '633736947972-d7fvf30rkr7an1dtl697i7urpv6ua9de.apps.googleusercontent.com';
+/* let GOOGLE_CLIENT_ID = '633736947972-d7fvf30rkr7an1dtl697i7urpv6ua9de.apps.googleusercontent.com';
 let GOOGLE_CLIENT_SECRET = 'pi-6Aq2xGuL667A8O0K2m795'
-let URL = 'http://localhost:3000/auth/google/callback/tejas'
+let URL = 'http://localhost:3000/auth/google/callback/tejas' */
 
 passport.use(new GoogleStrategy({
-  clientID: GOOGLE_CLIENT_ID,
-  clientSecret: GOOGLE_CLIENT_SECRET,
-  callbackURL: URL
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: process.env.GOOGLE_URL
 },
   function (accessToken, refreshToken, profile, done) {
     console.log("----------------------");
