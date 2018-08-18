@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport')
 var session = require('express-session')
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;//Using OAuth 2 strategy 
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy; //Using OAuth 2 strategy 
 
 
 var indexRouter = require('./routes/index');
@@ -16,14 +16,14 @@ var authRouter = require('./routes/auth');
 var app = express();
 
 // view engine setup
-/* console.log(path.join(__dirname, '../server/views'));
-console.log(path.join(__dirname,  '../server/public')); */
 app.set('views', path.join(__dirname, '../server/views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../server/public')));
 
@@ -38,35 +38,18 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-//GoogleStrategy
-/* let GOOGLE_CLIENT_ID = '633736947972-d7fvf30rkr7an1dtl697i7urpv6ua9de.apps.googleusercontent.com';
-let GOOGLE_CLIENT_SECRET = 'pi-6Aq2xGuL667A8O0K2m795'
-let URL = 'http://localhost:3000/auth/google/callback/tejas' */
-
-passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: process.env.GOOGLE_URL
-},
-  function (accessToken, refreshToken, profile, done) {
-    console.log("----------------------");
-    console.log(profile);
-    return done(null, profile);
-
-  }
-));
+require('./passport/google'); //using the google strategy
 
 //using express-session
 // app.use(session({ secret: '123salt' }))
 
 passport.serializeUser((user, done) => {
-  done(null, user);//keeping the whole userobject in the session
-});//using this serializeUser() fun we can place userObject into the session
+  done(null, user); //keeping the whole userobject in the session
+}); //using this serializeUser() fun we can place userObject into the session
 
 passport.deserializeUser((user, done) => {
   done(null, user);
-})//using deserializeUser() fun we can get/fetch the userObject which was stored in the session
+}) //using deserializeUser() fun we can get/fetch the userObject which was stored in the session
 
 
 app.use('/', indexRouter);

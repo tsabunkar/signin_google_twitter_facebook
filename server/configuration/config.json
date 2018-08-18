@@ -1,17 +1,13 @@
 {
     "web": {
-        "client_id": "633736947972-d7fvf30rkr7an1dtl697i7urpv6ua9de.apps.googleusercontent.com",
-        "project_id": "primeval-argon-207701",
+        "client_id": "481856407415-h6mej9lr5f7j8p4r5pm9pj8th9mmf9fh.apps.googleusercontent.com",
+        "project_id": "local-dialect-213703",
         "auth_uri": "https://accounts.google.com/o/oauth2/auth",
         "token_uri": "https://www.googleapis.com/oauth2/v3/token",
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_secret": "pi-6Aq2xGuL667A8O0K2m795",
-        "redirect_uris": [
-            "http://localhost:3000/auth/google/callback/tejas"
-        ],
-        "javascript_origins": [
-            "http://localhost:3000"
-        ]
+        "client_secret": "RpsgoaZ00R8iZOM2Gg7pcIWK",
+        "redirect_uris": ["http://localhost:3000/auth/google/callback/tejas"],
+        "javascript_origins": ["http://localhost:3000"]
     },
     "test": {
         "PORT": 3000,

@@ -12,7 +12,7 @@ if (env === 'development' || env === 'test') {
         process.env.GOOGLE_CLIENT_SECRET = config.web.client_secret;
         process.env.GOOGLE_URL = config.web.redirect_uris[0];
 
-        
+
 
     } else {
         process.env.PORT = config.test.PORT;
