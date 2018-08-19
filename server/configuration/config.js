@@ -11,8 +11,9 @@ if (env === 'development' || env === 'test') {
         process.env.GOOGLE_CLIENT_ID = config.web.client_id;
         process.env.GOOGLE_CLIENT_SECRET = config.web.client_secret;
         process.env.GOOGLE_URL = config.web.redirect_uris[0];
-
-
+        process.env.TWITTER_CONSUMER_KEY = config.twitter_web.consumerKey;
+        process.env.TWITTER_CONSUMER_SECRET = config.twitter_web.consumerSecret;
+        process.env.CALLBACK_URL = config.twitter_web.callbackURL;
 
     } else {
         process.env.PORT = config.test.PORT;

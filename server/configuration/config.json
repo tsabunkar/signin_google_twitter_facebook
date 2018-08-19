@@ -9,6 +9,11 @@
         "redirect_uris": ["http://localhost:3000/auth/google/callback/tejas"],
         "javascript_origins": ["http://localhost:3000"]
     },
+    "twitter_web" : {
+        "consumerKey": "7Q6ZrnnJr3MclGxzlQqbHOjmO",
+        "consumerSecret": "chiILt8R4Q50qRCFzQ3IfZkpCfs6hbkSbOSRXODtnPyBvT7pED",
+        "callbackURL": "http://192.168.0.103:3000/auth/twitter/callback"
+    },
     "test": {
         "PORT": 3000,
         "MONGODB_URI": "mongodb://localhost:27017/mymongodbtest",

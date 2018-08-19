@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport')
 var session = require('express-session')
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy; //Using OAuth 2 strategy 
+// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy; //Using OAuth 2 strategy 
 
 
 var indexRouter = require('./routes/index');
@@ -30,27 +30,13 @@ app.use(express.static(path.join(__dirname, '../server/public')));
 app.use(require('express-session')({
   secret: 'keyboard cat',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+    secure: false
+  }
 }));
 
-
-//using Passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-require('./passport/google'); //using the google strategy
-
-//using express-session
-// app.use(session({ secret: '123salt' }))
-
-passport.serializeUser((user, done) => {
-  done(null, user); //keeping the whole userobject in the session
-}); //using this serializeUser() fun we can place userObject into the session
-
-passport.deserializeUser((user, done) => {
-  done(null, user);
-}) //using deserializeUser() fun we can get/fetch the userObject which was stored in the session
-
+require('./passportConfigu')(app);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
