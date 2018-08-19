@@ -31,9 +31,9 @@ app.use(require('express-session')({
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true,
-  cookie: {
+/*   cookie: {
     secure: false
-  }
+  } */
 }));
 
 require('./passportConfigu')(app);

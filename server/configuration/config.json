@@ -9,10 +9,15 @@
         "redirect_uris": ["http://localhost:3000/auth/google/callback/tejas"],
         "javascript_origins": ["http://localhost:3000"]
     },
-    "twitter_web" : {
+    "twitter_web": {
         "consumerKey": "7Q6ZrnnJr3MclGxzlQqbHOjmO",
         "consumerSecret": "chiILt8R4Q50qRCFzQ3IfZkpCfs6hbkSbOSRXODtnPyBvT7pED",
         "callbackURL": "http://192.168.0.103:3000/auth/twitter/callback"
+    },
+    "facebook_web": {
+        "clientID": "2103472103203236",
+        "clientSecret": "555ec674b41debb5ce6b405860a34084",
+        "callbackURL": "http://localhost:3000/auth/facebook/callback"
     },
     "test": {
         "PORT": 3000,

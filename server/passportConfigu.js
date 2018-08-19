@@ -17,6 +17,7 @@ module.exports = (app) => {
     }) //using deserializeUser() fun we can get/fetch the userObject which was stored in the session
 
 
-    require('./passport/google')(); //using the google strategy
+    require('./passport/google')(); //using the google strategy logic/implementation here
     require('./passport/twitter')();
+    require('./passport/facebook')();
 }

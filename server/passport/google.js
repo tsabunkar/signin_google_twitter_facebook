@@ -14,24 +14,6 @@ module.exports = () => {
     },
     function (accessToken, refreshToken, profile, done) {
       // console.log(profile);
-      
-      /*   let userObj = {};
-
-        let email = profile.emails[0].value;
-        let name = profile.displayName;
-        let imageUrl = profile._json.image.url;
-
-        let google = {};
-        let googleId = profile.id;
-        let googleToken = accessToken;
-
-        userObj.email = email;
-        userObj.name = name;
-        userObj.imageUrl = imageUrl;
-
-        google.googleId = googleId;
-        google.googleToken = googleToken;
-        userObj.google = google; */
 
       let userObj = { //Storing the required information which was provided by google inside the userObject
         email: profile.emails[0].value,

@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
 
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    .div_border {
+      width: 300px;
+      border: 10px solid blueviolet;
+      padding: 25px;
+      margin: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Welcome to
+    <%= title %>
+  </p>
+
+  <div class="div_border">
     <div>
-      Signup with Google
+      Sigin with Google
     </div>
     <a href="/auth/google">Google</a>
     <hr>
     <div>
-      Signup with Twitter
+      Sigin with Twitter
     </div>
     <a href="/auth/twitter">Twitter</a>
-  </body>
+    <hr>
+    <div>
+      Sigin with Facebook
+    </div>
+    <a href="/auth/facebook">Facebook</a>
+  </div>
+
+
+</body>
+
 </html>

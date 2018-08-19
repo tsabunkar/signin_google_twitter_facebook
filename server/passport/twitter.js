@@ -6,7 +6,7 @@ module.exports = () => {
     passport.use(new TwitterStrategy({
             consumerKey: process.env.TWITTER_CONSUMER_KEY,
             consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-            callbackURL: process.env.CALLBACK_URL,
+            callbackURL: process.env.TWITTER_CALLBACK_URL,
             passReqToCallback: true
         },
         function (request, token, tokenSecret, profile, done) {
