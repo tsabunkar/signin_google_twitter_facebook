@@ -1,24 +1,5 @@
 {
-    "web": {
-        "client_id": "481856407415-h6mej9lr5f7j8p4r5pm9pj8th9mmf9fh.apps.googleusercontent.com",
-        "project_id": "local-dialect-213703",
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://www.googleapis.com/oauth2/v3/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_secret": "RpsgoaZ00R8iZOM2Gg7pcIWK",
-        "redirect_uris": ["http://localhost:3000/auth/google/callback/tejas"],
-        "javascript_origins": ["http://localhost:3000"]
-    },
-    "twitter_web": {
-        "consumerKey": "7Q6ZrnnJr3MclGxzlQqbHOjmO",
-        "consumerSecret": "chiILt8R4Q50qRCFzQ3IfZkpCfs6hbkSbOSRXODtnPyBvT7pED",
-        "callbackURL": "http://192.168.0.103:3000/auth/twitter/callback"
-    },
-    "facebook_web": {
-        "clientID": "2103472103203236",
-        "clientSecret": "555ec674b41debb5ce6b405860a34084",
-        "callbackURL": "http://localhost:3000/auth/facebook/callback"
-    },
+
     "test": {
         "PORT": 3000,
         "MONGODB_URI": "mongodb://localhost:27017/mymongodbtest",
@@ -27,6 +8,28 @@
     "development": {
         "PORT": 3000,
         "MONGODB_URI": "mongodb://localhost:27017/mymongodb",
-        "JWT_SECRET": "mySalt123!"
+        "JWT_SECRET": "mySalt123!",
+
+        "google_web": {
+            "client_id": "481856407415-h6mej9lr5f7j8p4r5pm9pj8th9mmf9fh.apps.googleusercontent.com",
+            "project_id": "local-dialect-213703",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://www.googleapis.com/oauth2/v3/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_secret": "RpsgoaZ00R8iZOM2Gg7pcIWK",
+            "redirect_uris": ["http://localhost:3000/auth/google/callback/tejas"],
+            "javascript_origins": ["http://localhost:3000"]
+        },
+        "twitter_web": {
+            "consumerKey": "7Q6ZrnnJr3MclGxzlQqbHOjmO",
+            "consumerSecret": "chiILt8R4Q50qRCFzQ3IfZkpCfs6hbkSbOSRXODtnPyBvT7pED",
+            "callbackURL": "http://192.168.0.103:3000/auth/twitter/callback"
+        },
+        "facebook_web": {
+            "clientID": "2103472103203236",
+            "clientSecret": "555ec674b41debb5ce6b405860a34084",
+            "callbackURL": "http://localhost:3000/auth/facebook/callback"
+        }
+
     }
 }

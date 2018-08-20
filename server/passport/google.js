@@ -1,5 +1,9 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy; //Using OAuth 2 strategy 
+const {
+  User
+} = require('../models/userModel');
+
 
 //GoogleStrategy
 /* let GOOGLE_CLIENT_ID = '633736947972-d7fvf30rkr7an1dtl697i7urpv6ua9de.apps.googleusercontent.com';
@@ -12,22 +16,46 @@ module.exports = () => {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_URL
     },
-    function (accessToken, refreshToken, profile, done) {
+    async function (accessToken, refreshToken, profile, done) {
       // console.log(profile);
 
-      let userObj = { //Storing the required information which was provided by google inside the userObject
-        email: profile.emails[0].value,
-        name: profile.displayName,
-        imageUrl: profile._json.image.url,
-        google: {
-          googleId: profile.id,
-          googleToken: accessToken
+      let query = {
+        "google.googleId": profile.id
+      }
+      
+      try {
+        let userObject = await User.findOne(query);
+
+
+        if (!userObject) { //if no user object is found then it means it is new user
+
+          console.log('no user document/object is found in the collection');
+
+          let userObjCreated = new User({
+            email: profile.emails[0].value,
+            name: profile.displayName,
+            imageUrl: profile._json.image.url,
+            google: {
+              googleId: profile.id,
+              googleToken: accessToken
+            }
+          });
+
+
+          await userObjCreated.save();
+          // return done(null, profile);
+          return done(null, userObjCreated);
+
+        } else { //user object is found which means it is exisiting user
+          console.log('user document/object is found in the collection');
+          return done(null, userObject)
         }
-      };
 
-      // return done(null, profile);
-      return done(null, userObj);
+      } catch (error) {
+        console.log('error');
+        return done(null, error);
+      }
 
-    }
-  ));
+    }));
+
 }

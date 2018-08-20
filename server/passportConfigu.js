@@ -19,5 +19,10 @@ module.exports = (app) => {
 
     require('./passport/google')(); //using the google strategy logic/implementation here
     require('./passport/twitter')();
-    require('./passport/facebook')();
+    // require('./passport/facebook')(); //this can be also imported as below
+    const {
+        facebookStrategyImplemn
+    } = require('./passport/facebook');
+
+    facebookStrategyImplemn();
 }
